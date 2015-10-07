@@ -1,11 +1,3 @@
-/*
- * quadrado_magico.c
- *
- * Author: Elton Viana
- * E-mail: me@eltonviana.com
- *
- */
-
 #include <stdio.h>
 
 /*
