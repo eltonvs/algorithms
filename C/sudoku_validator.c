@@ -1,11 +1,3 @@
-/*
- * jogo_sudoku.c
- *
- * Author: Elton Viana
- * E-mail: me@eltonviana.com
- *
- */
-
 #include <stdio.h>
 #include <math.h>
 //Biblioteca utilizada para gerar a raiz quadrada
