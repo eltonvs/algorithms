@@ -1,3 +1,11 @@
+/*
+ * quadrado_magico.c
+ *
+ * Author: Elton Viana
+ * E-mail: me@eltonviana.com
+ *
+ */
+
 #include <stdio.h>
 
 /*
@@ -127,6 +135,12 @@ int main() {
 
     printf("Tamanho do Quadrado: ");
     scanf("%i", &n);
+
+    //Repete o processo enquanto n for menor ou igual a 2
+    while(n <= 2) {
+        printf("O quadrado teve ter lado maior que 2: ");
+        scanf("%i", &n);
+    }
 
     cm = n*(n*n+1)/2;
 
