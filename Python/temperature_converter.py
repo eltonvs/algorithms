@@ -1,6 +1,16 @@
 #!/usr/bin/env python
 # -*- coding: UTF-8 -*-
 
+def supported_scales():
+    print("F - Fahrenheit")
+    print("K - Kelvin")
+    print("F - Celsius")
+    print("RE - Réamour")
+    print("RA - Rankine")
+    print("N - Newton")
+    print("D - Delisle")
+    print("RO - Rømer")
+
 def get_fahrenheit(t, e):
     if e.upper() == 'K': return 9*get_celsius(t, 'K')/5 + 32
     elif e.upper() == 'C': return 9*t/5 + 32
@@ -81,14 +91,16 @@ def get_romer(t, e):
     elif e.upper() == 'D': return 60 - t*7/20
     else: return t
 
-temperatura = float(input("Temperatura: "))
-escala = input("Escala: ")
+temperature = float(input("Temperature: "))
+print("Supported Scales:")
+supported_scales()
+scale = input("Scale: ")
 
-print("Fahrenheit:", get_fahrenheit(temperatura, escala))
-print("Kelvin:", get_kelvin(temperatura, escala))
-print("Celsius:", get_celsius(temperatura, escala))
-print("Réamour:", get_reamour(temperatura, escala))
-print("Rankine:", get_rankine(temperatura, escala))
-print("Newton:", get_newton(temperatura, escala))
-print("Delisle:", get_delisle(temperatura, escala))
-print("Rømer:", get_romer(temperatura, escala))
+print("Fahrenheit:", get_fahrenheit(temperature, scale))
+print("Kelvin:", get_kelvin(temperature, scale))
+print("Celsius:", get_celsius(temperature, scale))
+print("Réamour:", get_reamour(temperature, scale))
+print("Rankine:", get_rankine(temperature, scale))
+print("Newton:", get_newton(temperature, scale))
+print("Delisle:", get_delisle(temperature, scale))
+print("Rømer:", get_romer(temperature, scale))
