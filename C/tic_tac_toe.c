@@ -2,6 +2,14 @@
 
 unsigned int n;
 
+void clr_screen() {
+    #if defined WIN32
+    system("cls");
+    #else
+    system("clear");
+    #endif
+}
+
 void deflate_board(char board[n][n]) {
     int i, j;
     for (i = 0; i < n; i++)
@@ -10,6 +18,7 @@ void deflate_board(char board[n][n]) {
 }
 
 void show_board(char board[n][n]) {
+    clr_screen();
     int i, j;
     for(i = 0; i < n; i++)
         for(j = 0; j < n; j++)
@@ -71,7 +80,8 @@ int main() {
     deflate_board(board);
 
     do {
-        printf("Jogador %i (%c), escolha onde quer jogar\n", player, (player == 1) ? 'X' : 'O');
+        show_board(board);
+        printf("\nJogador %i (%c), escolha onde quer jogar\n", player, (player == 1) ? 'X' : 'O');
         do {
             printf("Coordenada X [1 -> %i]: ", n);
             scanf("%i", &x);
@@ -84,8 +94,6 @@ int main() {
         } while(check_coord(x, y, board));
 
         make_move(player, x, y, board);
-
-        show_board(board);
 
         if (check_winner(player, board)) {
             printf("O jogador %i ganhou!\n", player);
