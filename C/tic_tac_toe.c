@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-int n;
+unsigned int n;
 
-void set_0(char board[n][n]) {
+void deflate_board(char board[n][n]) {
     int i, j;
     for (i = 0; i < n; i++)
         for (j = 0; j < n; j++)
@@ -56,34 +56,34 @@ int check_coord(int x, int y, char board[n][n]) {
         return 0;
 }
 
-void set_value(int player, int x, int y, char board[n][n]){
+void make_move(int player, int x, int y, char board[n][n]){
     board[x][y] = (player == 1) ? 'X' : 'O';
 }
 
 int main() {
-    int count = 1, alive = 1, player = 1, c_x, c_y;
+    int count = 1, alive = 1, player = 1, x, y;
 
     printf("Informe o tamanho do tabuleiro: ");
     scanf("%i", &n);
 
     char board[n][n];
 
-    set_0(board);
+    deflate_board(board);
 
     do {
-        printf("Jogador %i, escolha onde quer jogar\n", player);
+        printf("Jogador %i (%c), escolha onde quer jogar\n", player, (player == 1) ? 'X' : 'O');
         do {
             printf("Coordenada X [1 -> %i]: ", n);
-            scanf("%i", &c_x);
-            c_x--;
+            scanf("%i", &x);
+            x--;
             printf("Coordenada Y [1 -> %i]: ", n);
-            scanf("%i", &c_y);
-            c_y--;
-            if (check_coord(c_x, c_y, board))
+            scanf("%i", &y);
+            y--;
+            if (check_coord(x, y, board))
                 printf("A posicao escolhida e invalida. Tente novamente:\n");
-        } while(check_coord(c_x, c_y, board));
+        } while(check_coord(x, y, board));
 
-        set_value(player, c_x, c_y, board);
+        make_move(player, x, y, board);
 
         show_board(board);
 
