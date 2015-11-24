@@ -54,8 +54,7 @@ void set_value(int player, int x, int y){
 }
 
 int main() {
-    int i, j, cont, alive = 1, player = 1;
-    int c_x, c_y;
+    int alive = 1, player = 1, c_x, c_y;
 
     printf("Jogo da Velha 2000\n");
 
