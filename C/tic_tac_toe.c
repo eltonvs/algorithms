@@ -54,7 +54,7 @@ void set_value(int player, int x, int y){
 }
 
 int main() {
-    int alive = 1, player = 1, c_x, c_y;
+    int count = 1, alive = 1, player = 1, c_x, c_y;
 
     printf("Jogo da Velha 2000\n");
 
@@ -78,9 +78,12 @@ int main() {
         if (check_winner(player)) {
             printf("O jogador %i ganhou!\n", player);
             alive = 0;
+        }else if (count == 9) {
+            printf("O jogo acabou! Não há mais movimentos possíveis\n");
+            alive = 0;
         }
 
-        player = (player == 1) ? 2 : 1;
+        player = (player == 1) ? 2 : 1, count++;
     }while (alive);
 
     printf("Fim do jogo.\n");
