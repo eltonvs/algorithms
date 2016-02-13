@@ -83,9 +83,9 @@ bool overlapped_rectangle(Rectangle r1, Rectangle r2, Rectangle *i) {
         // Define overlapped rectangle initial dot
         i->p = {max(r1.p.x, r2.p.x), max(r1.p.y, r2.p.y)};
         // Define width
-        i->w = min(r1.p.x + r1.w, r2.p.x + r2.w) - i->p.x;
+        i->w = min(abs(r1.p.x) + r1.w, abs(r2.p.x) + r2.w) - i->p.x;
         // Define height
-        i->h = min(r1.p.y + r1.h, r2.p.y + r2.h) - i->p.y;
+        i->h = min(abs(r1.p.y) + r1.h, abs(r2.p.y) + r2.h) - i->p.y;
 
         return true;
     } else {
