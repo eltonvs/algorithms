@@ -80,18 +80,22 @@ bool overlapped_rectangle(Rectangle r1, Rectangle r2, Rectangle *i) {
         swap(r1, r2);
 
     if (r2.p.x <= r1.p.x + r1.w) {
-        // Define overlapped rectangle initial dot
-        i->p = {max(r1.p.x, r2.p.x), max(r1.p.y, r2.p.y)};
-        // Define width
-        i->w = min(abs(r1.p.x) + r1.w, abs(r2.p.x) + r2.w) - i->p.x;
-        // Define height
-        i->h = min(abs(r1.p.y) + r1.h, abs(r2.p.y) + r2.h) - i->p.y;
+        if (r1.p.y > r2.p.y)
+            swap(r1, r2);
+        if (r2.p.y <= r1.p.y + r1.h) {
+            // Define overlapped rectangle initial dot
+            i->p = {max(r1.p.x, r2.p.x), max(r1.p.y, r2.p.y)};
+            // Define width
+            i->w = min(abs(r1.p.x) + r1.w, abs(r2.p.x) + r2.w) - i->p.x;
+            // Define height
+            i->h = min(abs(r1.p.y) + r1.h, abs(r2.p.y) + r2.h) - i->p.y;
 
-        return true;
-    } else {
-        // Set all i fields to 0
-        *i = {{0, 0}, 0, 0};
-
-        return false;
+            return true;
+        }
     }
+
+    // Set all i fields to 0
+    *i = {{0, 0}, 0, 0};
+
+    return false;
 }
