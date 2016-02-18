@@ -75,13 +75,16 @@ int main(int argc, char const *argv[]) {
 }
 
 bool overlapped_rectangle(Rectangle r1, Rectangle r2, Rectangle *i) {
-    // Define r1/r2
+    // Define r1/r2 basing on X axis
     if (r1.p.x > r2.p.x)
         swap(r1, r2);
 
+    // Verify intersection on X axis
     if (r2.p.x <= r1.p.x + r1.w) {
+        // Define r1/r2 basing on Y axis
         if (r1.p.y > r2.p.y)
             swap(r1, r2);
+        // Verify intersection on Y axis
         if (r2.p.y <= r1.p.y + r1.h) {
             // Define overlapped rectangle initial dot
             i->p = {max(r1.p.x, r2.p.x), max(r1.p.y, r2.p.y)};
