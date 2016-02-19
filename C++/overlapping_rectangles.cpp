@@ -97,8 +97,8 @@ bool overlapped_rectangle(Rectangle r1, Rectangle r2, Rectangle *i) {
         }
     }
 
-    // Set all i fields to 0
-    *i = {{0, 0}, 0, 0};
+    // Set i as a impossible rectangle
+    *i = {{0, 0}, -1, -1};
 
     return false;
 }
