@@ -8,7 +8,7 @@ int bin_search_r(int x, int l, int r, int *v) {
 	return (l > r) ? -1 : *(v+m) > x ? bin_search_r(x, l, m-1, v) : *(v+m) < x ? bin_search_r(x, m+1, r, v) : m;
 }
 
-int bin_search_i(int x, int l, int r, int *v) {
+int bin_search_i(int x, int *v, int l, int r) {
 	while (l <= r) {
 		int m = (r + l)/2;
 		if (*(v+m) == x)
