@@ -2,8 +2,6 @@
 # -*- coding: UTF-8 -*-
 
 def dia_semana(dia, mes, ano):
-    dias_semana = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"]
-
     #Verifica se a data informada está entre o intervalo que o algoritmo abrange
     if ano not in range(1900, 2400):
         print("A data deve estar entre 1900 e 2399!")
@@ -29,10 +27,13 @@ def dia_semana(dia, mes, ano):
     rd = (a + b + c + d)%7
 
     #Exibe o dia da semana de acordo com o resto da divisão 'rd'
-    print(dias_semana[rd])
+    return rd
 
 d = int(input("Digite o dia (DD): "))
 m = int(input("Digite o mês (MM): "))
 a = int(input("Digite o ano (AAAA): "))
 
-dia_semana(d, m, a)
+dia_semana = dia_semana(d, m, a)
+dias_semana = ["Segunda-Feira", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado", "Domingo"]
+
+print(dias_semana[dia_semana])
