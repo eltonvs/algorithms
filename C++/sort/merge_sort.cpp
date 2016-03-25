@@ -32,8 +32,8 @@ void merge_sort(T *V, int s_V, bool(*comp)(T, T)) {
             aux2[i-s_aux1] = V[i];
 
         // Sort subvectors
-        merge_sort(aux1, s_aux1);
-        merge_sort(aux2, s_aux2);
+        merge_sort(aux1, s_aux1, comp);
+        merge_sort(aux2, s_aux2, comp);
 
         // Merge sorted subvectors
         merge(V, aux1, s_aux1, aux2, s_aux2, comp);
