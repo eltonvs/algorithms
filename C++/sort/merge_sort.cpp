@@ -1,3 +1,12 @@
+// Function Headers
+template <typename T>
+bool compare(T, T);
+template <typename T>
+void merge(T *, T *, int, T *, int, bool(*)(T, T) = compare);
+template <typename T>
+void merge_sort(T *, int, bool(*)(T, T) = compare);
+
+// Function Declarations
 template <typename T>
 void merge(T *A, T *B, int s_B, T *C, int s_C, bool(*comp)(T, T)) {
     // Create vars to iterate vector
@@ -46,6 +55,6 @@ void merge_sort(T *V, int s_V, bool(*comp)(T, T)) {
 
 // Example of a comparation function
 template <typename T>
-bool cmp(T a, T b) {
+bool compare(T a, T b) {
     return a < b;
 }
